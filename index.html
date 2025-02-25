@@ -1,119 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página 3D</title>
+    <title>Portafolis Llibreries 3D</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden;
-            background-color: #111;
+            line-height: 1.6;
         }
-
-        #canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            z-index: 10;
-            font-family: Arial, sans-serif;
-        }
-
-        .content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .content a {
-            display: block;
+        header, nav, section, footer {
+            padding: 20px;
             margin: 10px;
-            color: #ffdd57;
-            font-size: 1.2rem;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+        nav {
+            background: #f4f4f4;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
             text-decoration: none;
-            transition: color 0.3s;
+            color: #333;
         }
-
-        .content a:hover {
-            color: #ff5722;
+        section img {
+            max-width: 100%;
+            height: auto;
         }
-
-        .button {
-            margin-top: 20px;
-            padding: 15px 30px;
-            background: #ff5722;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #ffdd57;
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
 <body>
-
-    <canvas id="canvas"></canvas>
-
-    <div class="content">
-        <h1>Bienvenido a mi Página 3D</h1>
-        <a href="ex1/ex1.html" src="ex1/1.png" target="_blank">Enlace 1</a>
-        <a href="ex2/ex2.html" target="_blank">Enlace 2</a>
-        <a href="ex3/ex3.html" target="_blank">Enlace 3</a>
-        <button class="button" onclick="downloadCV()">Descargar mi CV</button>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        let scene, camera, renderer, cube;
-
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas') });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.body.appendChild(renderer.domElement);
-
-            // Cubo 3D interactivo
-            const geometry = new THREE.BoxGeometry();
-            const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-            cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
-
-            camera.position.z = 5;
-
-            animate();
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            cube.rotation.x += 0.01;
-            cube.rotation.y += 0.01;
-
-            renderer.render(scene, camera);
-        }
-
-        function downloadCV() {
-            window.location.href = 'a.png';  // Cambia esta ruta a la ubicación de tu archivo
-        }
-
-        init();
-    </script>
+    <header>
+        <h1>Portafolis Llibreries 3D</h1>
+    </header>
+    <nav>
+        <a href="#introduccio">Introducció</a>
+        <a href="#exercicis">Exercicis</a>
+        <a href="#sobre-mi">Sobre Mi</a>
+    </nav>
+    <section id="introduccio">
+        <h2>Introducció</h2>
+        <p>Les llibreries 3D en JavaScript han revolucionat la creació d'entorns virtuals i experiències immersives a la web. A-Frame i MindAR són dues de les més destacades, cadascuna amb funcionalitats específiques per a diferents tipus de projectes.</p>
+        <p>Gràcies a aquestes eines, els desenvolupadors podem dissenyar des d'experiències interactives senzilles fins a aplicacions immersives avançades que combinen realitat virtual, realitat augmentada i interacció 3D. Aquestes tecnologies han convertit el web en una plataforma cada cop més potent per a la creació de contingut digital innovador.</p>
+        <p>Aquest portafolis explora aquestes llibreries en profunditat i presenta els projectes desenvolupats amb cadascuna d'elles.</p>
+    </section>
+    <section id="exercicis">
+        <h2>Exercicis</h2>
+        <article>
+            <h3>Una aproximació a les llibreries 3D</h3>
+            <img src="imatge1.jpg" alt="Imatge 1">
+            <p>Un petit exercici amb A-frame per testejar l'aplicació en diversos dispositius: en pantalla d'ordinador, en format mòbil i a unes ulleres de Realitat Virtual.</p>
+        </article>
+        <article>
+            <h3>Títol 2</h3>
+            <img src="imatge2.jpg" alt="Imatge 2">
+            <p>Descripció breu.</p>
+        </article>
+        <article>
+            <h3>Títol 3</h3>
+            <img src="imatge3.jpg" alt="Imatge 3">
+            <p>Descripció breu.</p>
+        </article>
+    </section>
+    <section id="sobre-mi">
+        <h2>Sobre Mi</h2>
+        <img src="foto_perfil.jpg" alt="Foto de perfil">
+        <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.</p>
+        <p>M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració, el manteniment i la seguretat dels sistemes informàtics.</p>
+        <p>Durant la meva formació, he adquirit coneixements en hardware, xarxes, sistemes operatius i administració de servidors. M'agrada treballar en equip i solucionar problemes tècnics de manera eficient. Estic motivat per continuar aprenent i aplicar els meus coneixements en un entorn professional.</p>
+        <a href="cv.pdf" download>Descarrega el meu CV</a>
+    </section>
+    <footer>
+        <p>&copy; 2025 El Meu Lloc Web</p>
+    </footer>
 </body>
 </html>
