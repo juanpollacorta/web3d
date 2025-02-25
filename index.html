@@ -9,79 +9,197 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-        }
-        header, nav, section, footer {
-            padding: 20px;
-            margin: 10px;
+            color: #333;
+            background-color: #fff;
         }
         header {
-            background: #333;
+            background: #000;
             color: #fff;
-            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            padding-right: 30px;
         }
-        nav {
-            background: #f4f4f4;
-            text-align: center;
-        }
-        nav a {
-            margin: 0 15px;
+
+        header nav a {
+            color: white;
             text-decoration: none;
-            color: #333;
+            margin: 0 15px;
+            font-size: 18px;
         }
-        section img {
-            max-width: 100%;
+        .container {
+            /*padding: 80px 20px 20px;*/
+            text-align: center;
+        }
+
+        .main-image {
+            width: 100%;
             height: auto;
         }
+
+        .info {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .info a {
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+            color: #074689;
+            text-align: center;
+        }
+
+
+        .info a:hover {
+            text-decoration: underline;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 10px;
+            width: 400px;
+            align-items: center;
+            text-align: center;
+            border: 2px solid #ccc;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .box img {
+            width: 90%;
+            height: auto;
+            cursor: pointer;
+        }
+        .about {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+        }
+
+        .about img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+
+        .about p {
+           max-width: 600px;
+              margin: auto;
+              padding-top: 10px;
+        }
+        .about button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .about button:hover {
+            background-color: #333;
+        }
+
         footer {
-            background: #333;
+            background: #000;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 10px;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding-right: 15px;
+            }
+            .flex-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Portafolis Llibreries 3D</h1>
+        <nav>
+            <a href="#introduccio">Introducció</a>
+            <a href="#exercicis">Exercicis</a>
+            <a href="#sobre-mi">Sobre Mi</a>
+        </nav>
     </header>
-    <nav>
-        <a href="#introduccio">Introducció</a>
-        <a href="#exercicis">Exercicis</a>
-        <a href="#sobre-mi">Sobre Mi</a>
-    </nav>
-    <section id="introduccio">
-        <h2>Introducció</h2>
-        <p>Les llibreries 3D en JavaScript han revolucionat la creació d'entorns virtuals i experiències immersives a la web. A-Frame i MindAR són dues de les més destacades, cadascuna amb funcionalitats específiques per a diferents tipus de projectes.</p>
-        <p>Gràcies a aquestes eines, els desenvolupadors podem dissenyar des d'experiències interactives senzilles fins a aplicacions immersives avançades que combinen realitat virtual, realitat augmentada i interacció 3D. Aquestes tecnologies han convertit el web en una plataforma cada cop més potent per a la creació de contingut digital innovador.</p>
-        <p>Aquest portafolis explora aquestes llibreries en profunditat i presenta els projectes desenvolupats amb cadascuna d'elles.</p>
-    </section>
-    <section id="exercicis">
-        <h2>Exercicis</h2>
-        <article>
-            <h3>Una aproximació a les llibreries 3D</h3>
-            <img src="imatge1.jpg" alt="Imatge 1">
-            <p>Un petit exercici amb A-frame per testejar l'aplicació en diversos dispositius: en pantalla d'ordinador, en format mòbil i a unes ulleres de Realitat Virtual.</p>
-        </article>
-        <article>
-            <h3>Títol 2</h3>
-            <img src="imatge2.jpg" alt="Imatge 2">
-            <p>Descripció breu.</p>
-        </article>
-        <article>
-            <h3>Títol 3</h3>
-            <img src="imatge3.jpg" alt="Imatge 3">
-            <p>Descripció breu.</p>
-        </article>
-    </section>
-    <section id="sobre-mi">
-        <h2>Sobre Mi</h2>
-        <img src="foto_perfil.jpg" alt="Foto de perfil">
-        <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.</p>
-        <p>M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració, el manteniment i la seguretat dels sistemes informàtics.</p>
-        <p>Durant la meva formació, he adquirit coneixements en hardware, xarxes, sistemes operatius i administració de servidors. M'agrada treballar en equip i solucionar problemes tècnics de manera eficient. Estic motivat per continuar aprenent i aplicar els meus coneixements en un entorn professional.</p>
-        <a href="cv.pdf" download>Descarrega el meu CV</a>
-    </section>
+    <div class="container">
+        <img src="12.avif" alt="Imatge Principal" class="main-image">
+        <div class="info" id="introduccio">
+            <h2>PORTAFOLIS LLIBRERIES 3D</h2>
+            <p>Les llibreries 3D en JavaScript han revolucionat la creació d'entorns virtuals i experiències immersives a la web.
+                A-Frame i MindAR són dues de les més destacades, cadascuna amb funcionalitats específiques per a diferents tipus de projectes.
+            </p>
+            <p>
+            Gràcies a aquestes eines, els desenvolupadors podem dissenyar des d'experiències interactives senzilles 
+            fins a aplicacions immersives avançades que combinen realitat virtual, realitat augmentada i interacció 3D.
+             Aquestes tecnologies han convertit el web en una plataforma cada cop més potent per a la creació de contingut digital innovador.
+             </p>
+            <p>Aquest portafolis explora aquestes llibreries en profunditat i presenta els projectes desenvolupats amb cadascuna d'elles.
+            </p>
+            <a href="https://github.com/SGotarraDAM/web3d" target="_blank">Visita el GitHub d'aquest projecte</a>
+        </div>
+        <div class="flex-container" id="exercicis">
+            <div class="box">
+                <img src="ex1/1.png" alt="Imatge 1" onclick="location.href='ex1/ex1.html'">
+                <div>
+                    <h3>Una aproximació a les llibreries 3D</h3>
+                    <p>ejercicio increible</p>
+                 
+                    
+                </div>
+            </div>
+            <div class="box">
+                <img src="baixa.png" alt="Imatge 2" onclick="location.href='ex2/ex2.html'">
+                <div>
+                    <h3>Títol 2</h3>
+                    <p>AUNNO</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="baixa.png" alt="Imatge 3" onclick="location.href='ex3/ex3.html'">
+                <div>
+                    <h3>Títol 3</h3>
+                    <p>AUNNO</p>
+                </div>
+            </div>
+        </div>
+      <div class="about" id="sobre-mi">
+            <h2>Sergi Gotarra</h2>
+            <img src="descarga.jpg" alt="Foto de perfil">
+           
+            <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.
+            </p>
+            <p>
+                 M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració,
+                  el manteniment i la seguretat dels sistemes informàtics.
+            </p>
+            <p>
+                Eres una persona activa y disciplinada, apasionada por el kickboxing y el desarrollo personal. Te interesa mejorar tu explosividad, fuerza y resistencia en el deporte, además de explorar libros que amplíen tu conocimiento. Disfrutas de la lectura, especialmente novelas y obras de crecimiento personal. También consideras viajar y descubrir nuevas experiencias.
+            </p>
+            <button onclick="window.location.href='a.png'">Descarrega el meu CV</button>
+            
+        </div>
+    </div>
     <footer>
         <p>&copy; 2025 El Meu Lloc Web</p>
     </footer>

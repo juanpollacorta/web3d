@@ -1,50 +1,16 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terra Girant</title>
-    <style>
-        body { margin: 0; overflow: hidden; background-color: #000000; }
-        canvas { display: block; }
-    </style>
-</head>
-<body>
-    <script src="ex1/1.png"></script>
-    <script>
-        // Escena, càmera i renderitzador
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Creació de la esfera (Terra)
-        const geometry = new THREE.SphereGeometry(5, 32, 32);
-        const texture = new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_%28blue_marble%29.jpg/220px-Earth_%28blue_marble%29.jpg');
-        const material = new THREE.MeshBasicMaterial({ map: texture });
-        const earth = new THREE.Mesh(geometry, material);
-        scene.add(earth);
-
-        camera.position.z = 15;
-
-        // Animació de rotació
-        function animate() {
-            requestAnimationFrame(animate);
-
-            // Rotació de la Terra
-            earth.rotation.y += 0.01;
-
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Ajustar el tamany de la finestra
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-    </script>
-</body>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-assets>
+            <img id="nadal" src="1.png">
+        </a-assets>
+        <a-sky color="#000"></a-sky>
+        <a-sphere position="0 2 -5" radius="1" src="#nadal"
+           animation="property: rotation; dur: 10000;
+           to: 0 360 0; loop: true"></a-sphere>  
+    </a-scene>
+  </body>
 </html>
