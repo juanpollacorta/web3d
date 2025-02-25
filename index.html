@@ -1,43 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Estética</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      font-family: 'Roboto', sans-serif;
-    }
-    .container {
-      text-align: center;
-    }
-    a {
-      display: block;
-      font-size: 24px;
-      text-decoration: none;
-      color: white;
-      margin: 20px;
-      padding: 15px 30px;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-    a:hover {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Rodriguez</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .image-link {
+            width: 200px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-link:hover {
+            transform: scale(1.1);
+        }
+
+        .link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .link:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .download-btn {
+            padding: 10px 20px;
+            background: #ff5e57;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #ff3b3b;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <a href="ex1.html">Enlace 1</a>
-    <a href="ex2.html">Enlace 2</a>
-    <a href="ex3.html">Enlace 3</a>
-  </div>
+
+    <h1>Bienvenido a mi página</h1>
+    
+    <div class="container">
+        <!-- Imagen con enlace -->
+        <a href="ex1/ex1.html" target="_blank">
+            <img src="1.png" alt="Imagen Clickable" class="image-link">
+        </a>
+        <a href="ex2.html" target="_blank">
+            <img src="baixa.png" alt="Imagen Clickable" class="image-link">
+        </a>
+        <a href="ex1/ex1.html" target="_blank">
+            <img src="baixa.png" alt="Imagen Clickable" class="image-link">
+        </a>
+
+
+        <!-- Botón de descarga -->
+        <button class="download-btn" onclick="descargarCV()">Descargar Currículum</button>
+    </div>
+
+    <script>
+        function descargarCV() {
+            window.location.href = 'a.png'; // Asegúrate de tener el archivo 'cv.pdf' en la misma carpeta
+        }
+    </script>
+
 </body>
 </html>
