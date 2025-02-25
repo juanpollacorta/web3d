@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web 3D</title>
-    <style>
-        a {
-            display: block; /* Fa que cada enllaç ocupi tota la línia */
-            margin-bottom: 5px; /* Espai entre enllaços (opcional) */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Estética</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Roboto', sans-serif;
+    }
+    .container {
+      text-align: center;
+    }
+    a {
+      display: block;
+      font-size: 24px;
+      text-decoration: none;
+      color: white;
+      margin: 20px;
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    a:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
 </head>
 <body>
-    <h1>3D WEBSITES</h1>
-    <h2>Juanpollika</h2>
-
-
-    <a href="ex1/ex1.html">Exercici 1</a>
-    <a href="ex2/ex2.html">Exercici 2</a>
-    <a href="ex3/ex3.html">Exercici 3</a>
+  <div class="container">
+    <a href="ex1.html">Enlace 1</a>
+    <a href="ex2.html">Enlace 2</a>
+    <a href="ex3.html">Enlace 3</a>
+  </div>
 </body>
 </html>
