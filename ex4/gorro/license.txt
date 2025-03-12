@@ -1,0 +1,11 @@
+Model Information:
+* title:	Gorro
+* source:	https://sketchfab.com/3d-models/gorro-6cd95fb4bbef4b29be813d1f819cffbe
+* author:	ivanalfredoto (https://sketchfab.com/ivanalfredoto)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Gorro" (https://sketchfab.com/3d-models/gorro-6cd95fb4bbef4b29be813d1f819cffbe) by ivanalfredoto (https://sketchfab.com/ivanalfredoto) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
