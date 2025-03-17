@@ -7,7 +7,8 @@
   <body>
     <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="hatModel" src="gorro.glb"></a-asset-item>
+        <a-asset-item id="hatModel" src="gorra_verde_v2.glb"></a-asset-item>
+        <a-asset-item id="#GAFAS" src="glasses_spy_tron_2_-_gafas_pbr.glb"></a-asset-item>
     </a-assets>
 
 
@@ -15,6 +16,12 @@
       <a-entity mindar-face-target="anchorIndex: 10">
         <a-gltf-model rotation="0 -0 0" position="0 0.1 -0.5" scale="0.777 0.777 0.777" src="#hatModel" visible="true"></a-gltf-model>
       </a-entity>
+
+      <a-entity mindar-face-target="anchorIndex: 197">
+        <a-gltf-model rotation="0 -0 0" position="0 0.1 -0.5" scale="0.777 0.777 0.777" src="#GAFAS" visible="true"></a-gltf-model>
+      </a-entity>
+
+
     </a-scene>
   </body>
 </html>
