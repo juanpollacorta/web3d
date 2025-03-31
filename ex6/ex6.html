@@ -18,8 +18,8 @@
     <a-assets>
       <img id="imgSortida" src="assets/entragroc.png" >
       <img id="imgFantasma" src="assets/fantasma.png" >
-      <img id="imgCasa" src="casadelsusto.jpg" >
-      <a-asset-item id="dracula" src="assets/dracula/scene.gltf"></a-asset-item>
+      <img id="imgCasa" src="1.jpg" >
+      <a-asset-item id="goku" src="goku_rigged__animated/scene.gltf"></a-asset-item>
     </a-assets>
    
     <a-entity camera look-controls wasd-controls="false">
@@ -41,12 +41,9 @@
    
    
       <a-sky src="#imgCasa"></a-sky>
-      <a-sphere position="5 2 -5" radius="1"  src="#imgFantasma"
-                animation="property: rotation; dur: 10000;
-                       to: 0 360 0; loop: true">          
-       </a-sphere>
-      <a-entity gltf-model="#dracula" position="0 -3.5 -5" scale="0.02 0.02 0.02"
-                animation="property: position; dur: 2000; from: 0 -3.5 -5; to: 0 -3 -5; dir: alternate; loop: true">        
+      
+      <a-entity gltf-model="#goku" position="37.381 -3.037 -22.172 " rotation="0 -49.897 0" scale="2 2" animation-mixer="clip: Idle" 
+                animation="property: position; dur: 2000; from: 37.381 -3.037 -22.172; to: 8.677 -3.000 -5.218; dir: alternate; loop: true">        
       </a-entity>
       <a-plane position="-1.5 0 1.5" src="#imgSortida" rotation="0 150 0"  transparent="true" mylink="href: https://www.wikipedia.org/;"></a-plane>
     </a-scene>
