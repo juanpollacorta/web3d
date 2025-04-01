@@ -1,0 +1,204 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+  <a-scene cursor="rayOrigin: mouse">
+          <a-assets>
+          <!-- Imatges 360 -->
+          <img id="i01" src="imatges/imatge0.jpg">
+          <img id="i02" src="imatges/torreSuperior.jpg">
+          <img id="i03" src="imatges/Planta1.png">
+          <img id="i04" src="imatges/torreSuperior.jpg">
+          <img id="i05" src="imatges/Pati.jpg">
+          <img id="i06" src="imatges/PlantaMenos1.jpg">
+          <img id="i07" src="imatges/Planta2.jpg">
+          <img id="i08" src="imatges/Planta2.jpg">
+          <img id="i09" src="imatges/cisterna.jpg">
+          <img id="i10" src="imatges/ermitaAltar.jpg">
+          <img id="i11" src="imatges/runesCastell.jpg">
+
+     
+          <!--imatge del plano-->  
+          <img id="plano" src="imatges/plano.jpg">
+
+
+         
+          <!-- Audios -->
+          <audio id="audiotorre" src="audios/Torre.mp3"></audio>
+          <audio id="audiocisterna" src="audios/cisterna.mp3"></audio>
+          <audio id="audio1" src="audios/Planta1.mp3"></audio>
+          <audio id="audioermita" src="audios/ermita.mp3"></audio>
+          <audio id="audiomenys1" src="audios/Plantamenys1.mp3"></audio>
+          <audio id="audio2" src="audios/Planta2.mp3"></audio>
+          <audio id="audiopati" src="audios/Pati.mp3"></audio>
+          <audio id="audiocastell" src="audios/castell.mp3"></audio>
+          
+
+
+        </a-assets>
+
+
+        <a-entity camera look-controls wasd-controls="false">
+        <!-- fuseTimeout = el temps que triga en fer click des de que es posiciona sobre un objecte-->
+        <a-entity id="myCursor" cursor="fuse: true; fuseTimeout: 1000"
+                position="0 0 -1"
+                geometry="primitive: circle; radius: 0.005;"
+                material="color: red; shader: flat"
+                animation="property: components.material.material.color;
+                    type: color;
+                    to: white;
+                    dur: 1000;
+                    dir: alternate;
+                    loop: true">
+        </a-entity>
+        </a-entity>
+           
+
+
+        <!-- Entorn 360 inicial -->
+        <a-sky id="sky" src="#i01"></a-sky>
+        <a-plane id="plano" position="0 -1 -2" src="#plano" rotation="0 0 0" scale="2 1 2"></a-plane>
+       
+        <!--boto d'anar a la torre-->
+        <a-sphere id="esfera"  bototorre="" position="-0.7 -0.7 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+
+        <a-sphere id="esfera"  botopati="" position="-0.32 -1 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+
+        <a-sphere id="esfera"  boto-1="" position="-0.1 -1.4 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+
+        <a-sphere id="esfera"  boto1="" position="-0.1 -1.25 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+        <a-sphere id="esfera"  boto2="" position="-0.05 -1. -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+        <a-sphere id="esfera"  botocisterna="" position="-0.01 -1.4. -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+        <a-sphere id="esfera"  botoermita="" position=" 0.1 -1.4 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+        <a-sphere id="esfera"  botocastell="" position=" 0.7 -1.4 -2" radius="0.03" color="blue"
+        animation="property: scale; dur: 1000;  to: 1.2 1.2 1.2; dir: alternate;  loop: true"
+        ></a-sphere>
+      <!-- Element de so -->
+      <a-entity id="sound" sound="src: #audio1"></a-entity>
+    </a-scene>
+
+
+    <script>
+      const sky = document.querySelector('#sky');
+      const sound = document.querySelector('#sound');
+     
+      //elimina el moviment de les tecles del cursor
+      document.querySelector("[camera]").removeAttribute("wasd-controls");
+       
+
+
+        AFRAME.registerComponent("bototorre", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i02'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audiotorre'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+       
+            AFRAME.registerComponent("botopati", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i05'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audiopati'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("boto-1", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i06'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audiomenys1'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("boto1", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i03'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audio1'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("boto2", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i07'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audio2'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("botocisterna", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i09'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audiocisterna'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("botoermita", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i10'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audioermita'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+            AFRAME.registerComponent("botocastell", {
+        init: function() {  
+            this.el.addEventListener("click", (e) => {        
+                sky.setAttribute('src', '#i11'); //Mostra la imatge de la torre                
+                if (sound.components.sound.isPlaying) {  
+                        sound.components.sound.stopSound(); // Para el so si ja s'està reproduint
+                }
+                sound.setAttribute('sound', 'src', '#audiocastell'); // Assigna l'audio que toca
+                sound.components.sound.playSound();    // Reprodueix el so      
+            })
+            }
+            });
+    </script>
+  </body>
+</html>
