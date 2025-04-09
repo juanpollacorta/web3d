@@ -1,0 +1,148 @@
+
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse">
+      <a-assets>          
+        <!-- Imagen del botón de entrada -->  
+        <img id="imgEntrada" src="start.png">
+        <a-asset-item id="ovniModel" src="ovni_low_poly/scene.gltf"></a-asset-item> 
+        <a-asset-item id="moto" src="moto_moto.glb"></a-asset-item>
+        <a-asset-item id="marge" src="marge__simpson_0.0.3_c_s_uy_gs9/scene.gltf"></a-asset-item>
+
+      </a-assets>
+
+      <a-entity camera look-controls wasd-controls="false">
+        <a-entity id="myCursor" cursor="fuse: true; fuseTimeout: 1000"
+                  position="0 0 -1"
+                  geometry="primitive: circle; radius: 0.005;"
+                  material="color: red; shader: flat"
+                  animation="property: components.material.material.color;
+                             type: color;
+                             to: white;
+                             dur: 1000;
+                             dir: alternate;
+                             loop: true">
+        </a-entity>
+      </a-entity>
+
+      <!-- Fondo estrellado -->
+      <a-sky id="sky" img src="a.jpg"></a-sky>
+
+      <!-- Botón de entrada -->
+      <a-plane id="inici" position="0 0.6 -5" src="#imgEntrada" rotation="0 0 0"
+               transparent="true" b_inici=""
+               animation="property: position; dur: 500; from: 0 0.6 -5; to: 0 0.6 -4.5; dir: alternate; loop: true">
+      </a-plane>
+
+      <!-- Moto como fondo -->
+      <a-entity id="moto" gltf-model="#moto" scale="2 2 2" position="0 -2 -15" visible="true">
+        <a-entity id="marge" gltf-model="#marge" scale="2 2 2" position="5 -2 -40" visible="true">
+
+      </a-entity>
+
+      <!-- OVNI 1 (movimiento aleatorio) -->
+      <a-entity id="ovni1" explota="" gltf-model="#ovniModel" scale="0.5 0.5 0.5" position="-5 2 0"
+                animation="property: position; dur: 5000; to: 5 2 0; dir: alternate; loop: true">
+      </a-entity>
+
+      <!-- OVNI 2 (movimiento aleatorio) -->
+      <a-entity id="ovni2" explota="" gltf-model="#ovniModel" scale="0.5 0.5 0.5" position="5 2 0"
+                animation="property: position; dur: 5000; to: -5 2 0; dir: alternate; loop: true">
+      </a-entity>
+
+    </a-scene>
+
+    <script>
+      let idInterval;  // Identificador de intervalo
+      segons = 0;  // Variable del temporizador
+      punts = 0;  // Variable de puntos
+
+      // Elimina el movimiento de las teclas del cursor
+      document.querySelector("[camera]").removeAttribute("wasd-controls");
+       
+
+
+       window.addEventListener("click", () => {  
+         let audio1 = new Audio("laser.mp3");    
+         audio1.play();
+       });
+ 
+ 
+       function controlImatges(){
+           segons=segons+1;
+           console.log(segons);
+        
+           if (segons==5)  
+             {
+                document.querySelector('#ovni1').setAttribute('visible', true);                
+             }    
+           if (segons==10) {
+             document.querySelector('#ovni1').setAttribute('visible', false);
+             document.querySelector('#ovni2').setAttribute('visible', true);
+           }  
+ 
+ 
+           if (segons==15){
+             document.querySelector('#ovni2').setAttribute('visible', false);
+             //aquí ha de mostrar el següent ovni
+           }
+          
+ 
+ 
+           //quan arriba a uns segons determinats, para la partida i mostra la puntuació
+           if (segons>25) {
+             segons=0;//para el rellotge
+             alert ("Punts: "+punts);    //MOSTRA LA PUNTUACIO
+             punts=0;  //reinicia la puntuacio
+             clearInterval(idInterval); // atura l'interval
+             // mostra el botó d'entrada        
+             document.querySelector('#inici').setAttribute('visible', true);          
+           }
+       }      
+ 
+ 
+       AFRAME.registerComponent("b_inici", {
+         init: function() {  
+          this.el.addEventListener("click", (e) => {
+             // crida a una funcio cada segon
+               idInterval=setInterval(controlImatges, 1000);
+               // Amaga el botó d'entrada        
+               document.querySelector('#inici').setAttribute('visible', false);  
+               let audio3 = new Audio("start.mp3");    
+               audio3.play();          
+            })
+          }
+          });
+ 
+ 
+         AFRAME.registerComponent("explota", {
+         init: function() {  
+          this.el.addEventListener("click", (e) => {
+           let audio2 = new Audio("explo.mp3");
+           audio2.play();
+           // augmenta la puntuacio
+           punts=punts+10;
+           this.el.setAttribute('visible', false);
+            })
+          }
+          });
+ 
+ 
+ 
+ 
+        
+    
+     </script>
+   </body>
+ </html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
