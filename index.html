@@ -32,7 +32,6 @@
             font-size: 18px;
         }
         .container {
-            /*padding: 80px 20px 20px;*/
             text-align: center;
         }
 
@@ -57,33 +56,36 @@
             text-align: center;
         }
 
-
         .info a:hover {
             text-decoration: underline;
         }
+
         .flex-container {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
+            justify-content: space-between; /* Distribuye el espacio de manera uniforme */
             padding: 20px;
         }
+
         .box {
             display: flex;
             flex-direction: column;
             background: #f0f0f0;
             padding: 15px;
             margin: 10px;
-            width: 400px;
+            width: 23%; /* Ajusta el ancho de cada caja para que quepan 4 en cada fila */
             align-items: center;
             text-align: center;
             border: 2px solid #ccc;
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .box img {
             width: 90%;
             height: auto;
             cursor: pointer;
         }
+
         .about {
             padding: 20px;
             text-align: center;
@@ -99,10 +101,11 @@
         }
 
         .about p {
-           max-width: 600px;
-              margin: auto;
-              padding-top: 10px;
+            max-width: 600px;
+            margin: auto;
+            padding-top: 10px;
         }
+
         .about button {
             margin-top: 15px;
             padding: 10px 20px;
@@ -113,6 +116,7 @@
             cursor: pointer;
             border-radius: 5px;
         }
+
         .about button:hover {
             background-color: #333;
         }
@@ -123,13 +127,18 @@
             text-align: center;
             padding: 10px;
         }
+
         @media (max-width: 768px) {
             header {
                 padding-right: 15px;
             }
+
             .flex-container {
-                flex-direction: column;
-                align-items: center;
+                justify-content: center; /* Centra las cajas en pantallas pequeñas */
+            }
+
+            .box {
+                width: 45%; /* Reduce el ancho de las cajas en pantallas pequeñas */
             }
         }
     </style>
@@ -156,7 +165,6 @@
              </p>
             <p>Aquest portafolis explora aquestes llibreries en profunditat i presenta els projectes desenvolupats amb cadascuna d'elles.
             </p>
-           
         </div>
         <div class="flex-container" id="exercicis">
             <div class="box">
@@ -164,7 +172,6 @@
                 <div>
                     <h3>Una aproximació a les llibreries 3D</h3>
                     <p>ejercicio increible</p>
-                   
                 </div>
             </div>
 
@@ -176,38 +183,62 @@
                 </div>
             </div>
 
-
             <div class="box">
                 <img src="ex3/waaly.png" alt="Imatge 3" onclick="location.href='ex3/ex3.html'">
                 <div>
                     <h3>Títol 3</h3>
                     <p>wally titototpo</p>
                 </div>
-
+            </div>
 
             <div class="box">
-                <img src="baixa.png" alt="Imatge 3" onclick="location.href='ex4/ex4.html'">
+                <img src="images (10).jpeg" alt="Imatge 3" onclick="location.href='ex4/ex4.html'">
                 <div>
                     <h3>Títol 4</h3>
-                    <p>progreso</p>
+                    <p>gorro duro</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="ex5/foto/tatami.jpg" alt="Imatge 5" onclick="location.href='ex5/ex5.html'">
+                <div>
+                    <h3>Títol 5</h3>
+                    <p>tatami</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="images.jpeg" alt="Imatge 6" onclick="location.href='ex6/ex6.html'">
+                <div>
+                    <h3>Títol 6</h3>
+                    <p>GOKU EL DURO DE LOS DUROS</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="Captura de 2025-05-12 15-55-03.png" alt="Imatge 7" onclick="location.href='ex8/ex8.html'">
+                <div>
+                    <h3>Títol 8</h3>
+                    <p>GOKU EL DURO DE LOS DUROS</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="Captura de 2025-05-12 15-55-03.png" alt="Imatge 8" onclick="location.href='ex10/asteroides.html'">
+                <div>
+                    <h3>Títol 10</h3>
+                    <p>Asteroides pelotilla</p>
                 </div>
             </div>
         </div>
-      <div class="about" id="sobre-mi">
+
+        <div class="about" id="sobre-mi">
             <h2>Juan el tigre</h2>
             <img src="descarga.jpg" alt="Foto de perfil">
-           
-            <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.
-            </p>
-            <p>
-                 M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració,
-                  el manteniment i la seguretat dels sistemes informàtics.
-            </p>
-            <p>
-                Eres una persona activa y disciplinada, apasionada por el kickboxing y el desarrollo personal. Te interesa mejorar tu explosividad, fuerza y resistencia en el deporte, además de explorar libros que amplíen tu conocimiento. Disfrutas de la lectura, especialmente novelas y obras de crecimiento personal. También consideras viajar y descubrir nuevas experiencias.
-            </p>
+            <p>Estudiant de SMIX del cicle formatiu de Grau Mitjà en Sistemes Microinformàtics i Xarxes.</p>
+            <p>M'apassiona la tecnologia i la informàtica, especialment tot el que té a veure amb la configuració,
+            el manteniment i la seguretat dels sistemes informàtics.</p>
+            <p>Eres una persona activa y disciplinada, apasionada por el kickboxing y el desarrollo personal. Te interesa mejorar tu explosividad, fuerza y resistencia en el deporte, además de explorar libros que amplíen tu conocimiento. Disfrutas de la lectura, especialmente novelas y obras de crecimiento personal. También consideras viajar y descubrir nuevas experiencias.</p>
             <button onclick="window.location.href='a.png'">Descarrega el meu CV</button>
-            
         </div>
     </div>
     <footer>
